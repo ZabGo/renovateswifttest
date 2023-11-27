@@ -136,9 +136,9 @@ jinja2==3.1.2 \
     --hash=sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852 \
     --hash=sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61
     # via cookiecutter
-json-e==4.5.3 \
-    --hash=sha256:4d40ed481d19e475bb4b21807675a34b077a19197385007fed0ca4e867b5d9cd \
-    --hash=sha256:b150f590e4febd77589f6becb45a99dc503351c3927d2c41b7310ab7dfd547e2
+json-e==4.6.0 \
+    --hash=sha256:2ec3796a6fb40097642a0cc17ba1a0c08b637a76d32f27633fa4cd9def1e77f8 \
+    --hash=sha256:c5fd5c7d98b9394fbc9041c380134f4ed8b055c487f2607ee4f306383ab4d8b8
     # via taskcluster-taskgraph
 markdown-it-py==3.0.0 \
     --hash=sha256:355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1 \
