@@ -1,75 +1,94 @@
-![GitHub Cards Preview](https://github.com/sameersyd/Wiggles-iOS/blob/main/art/GITHUB-COVER.png?raw=true)
+Firefox for iOS [![codebeat badge](https://codebeat.co/badges/67e58b6d-bc89-4f22-ba8f-7668a9c15c5a)](https://codebeat.co/projects/github-com-mozilla-firefox-ios) [![codecov](https://codecov.io/gh/mozilla-mobile/firefox-ios/branch/main/graph/badge.svg)](https://codecov.io/gh/mozilla-mobile/firefox-ios/branch/main)
+===============
 
-# Wiggles 🐶
-Beautiful Puppy adoption app built to Demonstrate the use of SwiftUI and MVVM Architecture 🏗. *Made with love ❤️ by [Sameer Nawaz](https://github.com/sameersyd)*
+Download on the [App Store](https://apps.apple.com/app/firefox-web-browser/id989804926).
 
-<br />
 
-## UI Design 🎨
+This branch (main)
+-----------
 
-The `UI/UX` & `README.md` structure for this Wiggles App was designed by <a href="https://github.com/Spikeysanju">@Spikeysanju</a>
+This branch works with [Xcode 15](https://developer.apple.com/download/all/?q=xcode), Swift 5.8 and supports iOS 15 and above.
 
-***Click to View Wiggles app Design from below 👇***
+*Please note:* Both Intel and M1 macs are supported 🎉 and we use swift package manager.
 
-[![Wiggles](https://img.shields.io/badge/Wiggles-FIGMA-black.svg?style=for-the-badge&logo=figma)](https://www.figma.com/file/OXtSFvmcIcecMkuqSi2RaT/Compose-Challenge-1?node-id=102%3A1)
+Please make sure you aim your pull requests in the right direction.
 
-<br />
+For bug fixes and features for a specific release, use the version branch.
 
-## Light Mode 🌞
-Home | Details | Details (Scrolled)
---- | --- | --- |
-![](https://github.com/sameersyd/Wiggles-iOS/blob/main/art/home-screen.png) | ![](https://github.com/sameersyd/Wiggles-iOS/blob/main/art/details-screen.png) | ![](https://github.com/sameersyd/Wiggles-iOS/blob/main/art/details-screen-scrolled.png)
+Getting involved
+----------------
 
-<br />
+We encourage you to participate in this open source project. We love Pull Requests, Issue Reports, Feature Requests or any kind of positive contribution. Please read the [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) and our [Contributing guidelines](https://github.com/mozilla-mobile/firefox-ios/blob/main/CONTRIBUTING.md) first. 
 
-## Dark Mode 🌚
-Home | Details | Details (Scrolled)
---- | --- | --- |
-![](https://github.com/sameersyd/Wiggles-iOS/blob/main/art/home-screen-dark.png) | ![](https://github.com/sameersyd/Wiggles-iOS/blob/main/art/details-screen-dark.png) | ![](https://github.com/sameersyd/Wiggles-iOS/blob/main/art/details-screen-scrolled-dark.png)
+- You can [file a new issue](https://github.com/mozilla-mobile/firefox-ios/issues/new/choose) or research [existing bugs](https://github.com/mozilla-mobile/firefox-ios/issues)
 
-<br />
+If more information is required or you have any questions then we suggest reaching out to us via:
+- Chat on Element channel [#fx-ios](https://chat.mozilla.org/#/room/#fx-ios:mozilla.org) for general discussion, or write DMs to specific teammates for questions.
+- Open a [Github discussion](https://github.com/mozilla-mobile/firefox-ios/discussions) which can be used for general questions.
 
-## Built With 🛠
-- [SwiftUI](https://developer.apple.com/documentation/swiftui/) - SwiftUI is an innovative, exceptionally simple way to build user interfaces across all Apple platforms with the power of Swift.
-- [Figma](https://figma.com/) - Figma is a vector graphics editor and prototyping tool which is primarily web-based.
+Want to contribute on the codebase but don't know where to start? Here is a list of [issues that are contributor friendly](https://github.com/mozilla-mobile/firefox-ios/labels/Contributor%20OK), but make sure to read the [Contributing guidelines](https://github.com/mozilla-mobile/firefox-ios/blob/main/CONTRIBUTING.md) first. 
 
-<br />
+Building the code
+-----------------
 
-## Android Version 📱
-Checkout the Android version of this app <a href="https://github.com/Spikeysanju/Wiggles">Wiggles</a>
+1. Install the latest [Xcode developer tools](https://developer.apple.com/xcode/downloads/) from Apple.
+1. Install, [Brew](https://brew.sh), Node, and a Python3 virtualenv for localization scripts:
+    ```shell
+    brew update
+    brew install node
+    pip3 install virtualenv
+    ```
+1. Clone the repository:
+    ```shell
+    git clone https://github.com/mozilla-mobile/firefox-ios
+    ```
+1. Install Node.js dependencies, build user scripts and update content blocker:
+    ```shell
+    cd firefox-ios
+    sh ./bootstrap.sh
+    ```
+1. Open `Client.xcodeproj` in Xcode.
+1. Make sure to select the `Fennec` [scheme](https://developer.apple.com/documentation/xcode/build-system?changes=_2) in Xcode.
+1. Select the destination device you want to build on.
+1. Run the app with `Cmd + R` or by pressing the `build and run` button.
 
-<br />
+⚠️ Important: In case you have dependencies issues with SPM, please try the following:
+- Xcode -> File -> Packages -> Reset Package Caches
 
-## Contribute 🤝
-If you want to contribute to this app, you're always welcome!
-See [Contributing Guidelines](https://github.com/sameersyd/Wiggles-iOS/blob/main/CONTRIBUTION.md). 
+Building User Scripts
+-----------------
 
-<br />
+User Scripts (JavaScript injected into the `WKWebView`) are compiled, concatenated, and minified using [webpack](https://webpack.js.org/). User Scripts to be aggregated are placed in the following directories:
 
-## Donation 💰
-If this project helped you reduce time to develop, you can buy me a cup of coffee :) 
-
-<br />
-
-<a href="https://www.buymeacoffee.com/sameersyd" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-## License 🔖
+```none
+/Client
+|-- /Frontend
+    |-- /UserContent
+        |-- /UserScripts
+            |-- /AllFrames
+            |   |-- /AtDocumentEnd
+            |   |-- /AtDocumentStart
+            |-- /MainFrame
+                |-- /AtDocumentEnd
+                |-- /AtDocumentStart
 ```
-    Apache 2.0 License
 
+This reduces the total possible number of User Scripts down to four. The compiled output from concatenating and minifying the User Scripts placed in these folders resides in `/Client/Assets` and are named accordingly:
 
-    Copyright 2021 Sameer Nawaz
+* `AllFramesAtDocumentEnd.js`
+* `AllFramesAtDocumentStart.js`
+* `MainFrameAtDocumentEnd.js`
+* `MainFrameAtDocumentStart.js`
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+To simplify the build process, these compiled files are checked-in to this repository. When adding or editing User Scripts, these files can be re-compiled with `webpack` manually. This requires Node.js to be installed, and all required `npm` packages can be installed by running `npm install` in the project's root directory. User Scripts can be compiled by running the following `npm` command in the root directory of the project:
 
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
+```shell
+npm run build
 ```
+
+License
+-----------------
+
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at https://mozilla.org/MPL/2.0/
